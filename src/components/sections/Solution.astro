@@ -1,0 +1,199 @@
+---
+const beneficios = [
+  { icon: '⚡', text: 'Conciliación automática de ventas y propinas' },
+  { icon: '📊', text: 'Control de inventario en tiempo real' },
+  { icon: '🔔', text: 'Integración de pedidos y reservas con recordatorios' },
+  { icon: '📄', text: 'Boletas y facturas electrónicas sin atrasos' }
+];
+---
+<section id="solucion" class="section alt">
+  <div class="container">
+    <div class="solution-grid">
+      <div class="solution-content">
+        <div data-aos="fade-right">
+          <h2>✨ Flowizz automatiza lo que más te quita tiempo</h2>
+          <p class="subtitle">
+            Conectamos tus canales de venta, pagos, inventario y agenda en un solo flujo de trabajo inteligente.
+          </p>
+        </div>
+        
+        <div class="benefits-list" data-aos="fade-right" data-aos-delay="200">
+          {beneficios.map((benefit, index) => (
+            <div 
+              class="benefit-item" 
+              data-aos="fade-up" 
+              data-aos-delay={300 + (index * 100)}
+            >
+              <div class="benefit-icon">{benefit.icon}</div>
+              <span>{benefit.text}</span>
+            </div>
+          ))}
+        </div>
+        
+        <div class="solution-cta" data-aos="fade-right" data-aos-delay="600">
+          <a href="#contacto" class="button">
+            Descubre cómo Flowizz transforma tu negocio
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="solution-visual" data-aos="fade-left" data-aos-delay="400">
+        <div class="visual-container">
+          <div class="workflow-demo">
+            <div class="workflow-step active">
+              <div class="step-icon">🔄</div>
+              <div class="step-label">Automatización</div>
+            </div>
+            <div class="workflow-step">
+              <div class="step-icon">📈</div>
+              <div class="step-label">Resultados</div>
+            </div>
+            <div class="workflow-step">
+              <div class="step-icon">🎯</div>
+              <div class="step-label">Crecimiento</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .solution-grid {
+    display: grid;
+    gap: var(--space-10);
+    align-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .solution-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .solution-content h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .benefits-list {
+    margin: var(--space-8) 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--color-bg-card);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-success);
+    transition: all var(--transition-normal);
+  }
+
+  .benefit-item:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .benefit-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .benefit-item span {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .solution-cta {
+    margin-top: var(--space-6);
+  }
+
+  .visual-container {
+    background: var(--gradient-card);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    border: 1px solid rgba(186, 171, 212, 0.12);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .workflow-demo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .workflow-demo::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    z-index: 1;
+  }
+
+  .workflow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    position: relative;
+    z-index: 2;
+    background: var(--color-bg-card);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    border: 2px solid transparent;
+    transition: all var(--transition-normal);
+  }
+
+  .workflow-step.active {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .step-icon {
+    font-size: 2rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-hero);
+    border-radius: 50%;
+    color: white;
+  }
+
+  .step-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .workflow-demo {
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .workflow-demo::before {
+      display: none;
+    }
+
+    .step-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+    }
+  }
+</style>

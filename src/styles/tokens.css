@@ -1,0 +1,559 @@
+:root {
+  /* Paleta profesional basada en logo + tendencias SaaS 2024 */
+  --color-indigo-900: #220753; /* primario profundo del logo */
+  --color-primary: #472095; /* tono intermedio para UI interactiva */
+  --color-primary-light: #6f46c8; /* gradientes y hover */
+  --color-accent: #BAABD4; /* lila claro del logo */
+  --color-accent-soft: #2a1f42; /* fondos suaves */
+  --color-success: #22B37A; /* feedback positivo */
+  --color-warning: #F6C44E; /* alertas */
+  --color-danger: #dc2626;
+
+  /* Fondos y texto refinados - TEMA OSCURO */
+  --color-bg: #0a0612;
+  --color-bg-alt: #141024;
+  --color-bg-card: #1a1530;
+  --color-text: #ffffff;
+  --color-text-soft: #e2dff0;
+  --color-text-muted: #b8b3c7;
+
+  /* Gradientes premium - TEMA OSCURO */
+  --gradient-hero: linear-gradient(135deg, #220753 0%, #472095 35%, #6f46c8 100%);
+  --gradient-subtle: linear-gradient(135deg, #141024 0%, #1a1530 100%);
+  --gradient-card: linear-gradient(145deg, #1a1530 0%, #0f0920 100%);
+
+  /* Tipografía escalada */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Escalas de tamaño más precisas */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  --text-4xl: 2.25rem;   /* 36px */
+  --text-5xl: 3rem;      /* 48px */
+
+  /* Radios modernos */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 12px; /* más moderno que 10px */
+  --radius-lg: 20px; /* más generoso */
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Espaciado con escala perfecta (1.25 ratio) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 64px;
+  --space-12: 96px;
+
+  /* Sombras refinadas - TEMA OSCURO */
+  --shadow-sm: 0 1px 2px -1px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 32px -4px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 40px -8px rgba(0, 0, 0, 0.6), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 32px rgba(71, 32, 149, 0.35);
+
+  /* Container y breakpoints */
+  --container-max: 1200px;
+  --container-padding: var(--space-6);
+
+  /* Transiciones suaves */
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.25s ease-out;
+  --transition-slow: 0.35s ease-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0a0612;
+    --color-bg-alt: #141024;
+    --color-bg-card: #1a1530;
+    --color-text: #f7f5fb;
+    --color-text-soft: #c4c0d0;
+    --color-text-muted: #9b96ac;
+    --color-accent-soft: #2a1f42;
+    --gradient-subtle: linear-gradient(135deg, #141024 0%, #1a1530 100%);
+    --gradient-card: linear-gradient(145deg, #1a1530 0%, #0f0920 100%);
+    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px -4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Estilos de respaldo globales para AOS - Más suaves */
+[data-aos] {
+  opacity: 0.8 !important;
+  transform: translateY(20px) !important;
+  transition: all 0.6s ease-out !important;
+}
+
+/* Elementos ya animados - visibles */
+[data-aos].aos-animate {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Anular AOS solo si no está disponible */
+.no-aos [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Reset y base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Tipografía escalada */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-text);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+h1 { font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl)); }
+h2 { font-size: clamp(var(--text-2xl), 3vw, var(--text-4xl)); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+
+p {
+  margin: 0;
+  line-height: 1.65;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Utilities profesionales */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.grid { display: grid; }
+.flex { display: flex; }
+.center { display: flex; align-items: center; justify-content: center; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.text-center { text-align: center; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Componentes base mejorados */
+.subtitle {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--color-text-soft);
+  max-width: 60ch;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-accent-soft);
+  color: var(--color-indigo-900);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+/* Botones modernos */
+.button {
+  --_bg: var(--color-primary);
+  --_color: #ffffff;
+  --_border: transparent;
+  --_shadow: var(--shadow-md);
+  
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--_bg);
+  color: var(--_color);
+  border: 2px solid var(--_border);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-full);
+  box-shadow: var(--_shadow);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button.secondary {
+  --_bg: var(--color-accent-soft);
+  --_color: var(--color-indigo-900);
+  --_shadow: var(--shadow-sm);
+  color: white;
+}
+
+.button.outline {
+  --_bg: transparent;
+  --_color: #ffffff;
+  --_border: rgba(255, 255, 255, 0.8);
+  --_shadow: none;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.button.outline:hover {
+  --_bg: rgba(255, 255, 255, 0.2);
+  --_color: #ffffff;
+  --_border: rgba(255, 255, 255, 1);
+}
+
+/* Secciones modernas */
+.section {
+  padding: var(--space-12) 0;
+  position: relative;
+}
+
+.section.hero {
+  padding: var(--space-10) 0 var(--space-12);
+  background: var(--gradient-hero);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.section.alt {
+  background: var(--gradient-subtle);
+}
+
+.section.accent {
+  background: var(--gradient-hero);
+  color: #ffffff;
+}
+
+/* Cards premium */
+.cards-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(186, 171, 212, 0.12);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(186, 171, 212, 0.2);
+}
+
+.card h3 {
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.card p {
+  color: var(--color-text-soft);
+  line-height: 1.6;
+}
+
+/* Steps modernos */
+.steps {
+  display: grid;
+  gap: var(--space-6);
+  counter-reset: step;
+}
+
+@media (min-width: 768px) {
+  .steps {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+
+.step {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(186, 171, 212, 0.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.step:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: var(--gradient-hero);
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.step h3 {
+  margin-bottom: var(--space-3);
+  padding-right: var(--space-8);
+}
+
+.step p {
+  color: var(--color-text-soft);
+}
+
+/* Footer mejorado */
+.footer {
+  padding: var(--space-10) 0 var(--space-6);
+  background: linear-gradient(135deg, #0a0612 0%, #14092b 100%);
+  color: #c4c0d0;
+  font-size: var(--text-sm);
+}
+
+.footer a {
+  color: #e8e1f3;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer a:hover {
+  color: var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding-inline: var(--space-4);
+  }
+  
+  .section {
+    padding: var(--space-8) 0;
+  }
+  
+  .section.hero {
+    padding: var(--space-8) 0;
+  }
+  
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+/* Animaciones de fondo oscuro elegantes */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(71, 32, 149, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(186, 171, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(34, 7, 83, 0.1) 0%, transparent 50%);
+  animation: backgroundMove 20s ease-in-out infinite;
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle, rgba(71, 32, 149, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: dots 40s linear infinite;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+@keyframes backgroundMove {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  33% {
+    transform: translateY(-30px) rotate(1deg);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translateY(20px) rotate(-1deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes dots {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  100% {
+    transform: translateX(50px) translateY(50px);
+  }
+}
+
+/* Partículas flotantes adicionales */
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.floating-particles::before,
+.floating-particles::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(186, 171, 212, 0.4);
+  border-radius: 50%;
+  animation: float 15s infinite;
+}
+
+.floating-particles::before {
+  top: 20%;
+  left: 20%;
+  animation-delay: -5s;
+  animation-duration: 12s;
+}
+
+.floating-particles::after {
+  top: 60%;
+  right: 20%;
+  animation-delay: -10s;
+  animation-duration: 18s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-100px) translateX(50px);
+    opacity: 1;
+  }
+}
+
+/* Mejoras para el contraste en tema oscuro */
+.section.alt {
+  background: var(--gradient-subtle);
+}
+
+.card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(186, 171, 212, 0.1);
+}
+
+/* Estilos adicionales para hero con fondo animado */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 30% 70%, rgba(111, 70, 200, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(34, 7, 83, 0.1) 0%, transparent 50%);
+  animation: heroBackground 25s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes heroBackground {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-aos] {
+    transition-property: transform, opacity;
+  }
+}

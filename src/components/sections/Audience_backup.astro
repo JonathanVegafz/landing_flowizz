@@ -1,0 +1,20 @@
+---
+const testimonial = {
+  quote: 'Antes pasaba horas conciliando caja y propinas, ahora Flowizz lo hace en segundos. Me dedico a atender clientes, no a cuadrar números.',
+  author: 'Carolina',
+  role: 'Dueña de restaurante en Valparaíso (Testimonio simulado)'
+};
+---
+<section id="publico" class="section">
+  <div class="container">
+    <h2 style="margin-top:0; font-size:clamp(1.9rem,3.5vw,2.6rem);">👩‍🍳 👨‍🔧 👩‍⚕️ Diseñado para negocios como el tuyo</h2>
+    <p class="subtitle">Restaurantes, tiendas y servicios en Valparaíso (y pronto en todo Chile). Si tienes poco tiempo, te pierdes en papeleo o tus clientes exigen más rapidez: Flowizz es para ti.</p>
+    <div style="margin-top:40px; display:grid; gap:32px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
+      <div class="card" style="background:var(--color-accent-soft); border-color:#d2c6e6;">
+        <p style="margin:0; font-style:italic;">“{testimonial.quote}”</p>
+        <p style="margin:.75rem 0 0; font-size:.85rem; font-weight:600;">— {testimonial.author}</p>
+        <p style="margin:.25rem 0 0; font-size:.7rem; letter-spacing:.5px; text-transform:uppercase;">{testimonial.role}</p>
+      </div>
+    </div>
+  </div>
+</section>

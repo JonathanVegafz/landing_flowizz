@@ -1,0 +1,204 @@
+---
+const steps = [
+  { 
+    title:'Identificamos tus problemas', 
+    body:'Conversamos contigo para entender los dolores: conciliación, pedidos, inventario, agenda, boletas, etc.',
+    icon: '🔍'
+  },
+  { 
+    title:'Diseñamos la solución', 
+    body:'Integramos tus herramientas (POS, SII, WhatsApp, apps de delivery, etc.).',
+    icon: '🎨'
+  },
+  { 
+    title:'Implementamos la automatización', 
+    body:'Configuramos el flujo digital, eliminamos pasos manuales y dejamos todo funcionando.',
+    icon: '⚙️'
+  },
+  { 
+    title:'Probamos y ajustamos', 
+    body:'Revisamos que corra perfecto y afinamos hasta lograr estabilidad sin fricciones.',
+    icon: '✅'
+  },
+];
+---
+<section id="proceso" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>🛠️ Así es el proceso con Flowizz</h2>
+      <p class="subtitle">
+        No necesitas ser experto en tecnología. Nosotros nos encargamos y trabajamos contigo paso a paso.
+      </p>
+    </div>
+    
+    <div class="process-timeline">
+      {steps.map((step, index) => (
+        <div 
+          class="process-step" 
+          data-aos="fade-up" 
+          data-aos-delay={200 * (index + 1)}
+        >
+          <div class="step-header">
+            <div class="step-number">{index + 1}</div>
+            <div class="step-icon-large">{step.icon}</div>
+          </div>
+          <div class="step-content">
+            <h3>{step.title}</h3>
+            <p>{step.body}</p>
+          </div>
+          {index < steps.length - 1 && (
+            <div class="step-connector" aria-hidden="true"></div>
+          )}
+        </div>
+      ))}
+    </div>
+    
+    <div class="process-cta" data-aos="fade-up" data-aos-delay="800">
+      <a href="#contacto" class="button">
+        <span>Quiero empezar mi automatización</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-10);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .process-timeline {
+    display: grid;
+    gap: var(--space-8);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .process-timeline {
+      gap: var(--space-6);
+    }
+  }
+
+  .process-step {
+    position: relative;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(186, 171, 212, 0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    transition: all var(--transition-normal);
+  }
+
+  .process-step:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .step-number {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-hero);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--text-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .step-icon-large {
+    font-size: 2rem;
+    background: var(--color-accent-soft);
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-content h3 {
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+    font-size: var(--text-xl);
+  }
+
+  .step-content p {
+    color: var(--color-text-soft);
+    line-height: 1.6;
+  }
+
+  .step-connector {
+    position: absolute;
+    left: 50%;
+    bottom: -32px;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(180deg, var(--color-primary), transparent);
+  }
+
+  @media (min-width: 768px) {
+    .process-timeline {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .step-connector {
+      display: none;
+    }
+
+    .process-step:nth-child(odd) {
+      transform: translateY(var(--space-6));
+    }
+
+    .process-step:nth-child(even) {
+      transform: translateY(0);
+    }
+
+    .process-step:hover:nth-child(odd) {
+      transform: translateY(calc(var(--space-6) - 4px));
+    }
+
+    .process-step:hover:nth-child(even) {
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .process-timeline {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .process-step:nth-child(odd),
+    .process-step:nth-child(even) {
+      transform: translateY(0);
+    }
+
+    .process-step:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  .process-cta {
+    text-align: center;
+    margin-top: var(--space-10);
+  }
+</style>

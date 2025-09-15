@@ -1,0 +1,140 @@
+---
+const problems = [
+  { 
+    icon:'💸', 
+    title:'Conciliación confusa', 
+    body:'Diferencias entre sistemas, reportes poco claros y riesgo legal si no pagas a tiempo.',
+    color: 'var(--color-danger)'
+  },
+  { 
+    icon:'📲', 
+    title:'Pedidos dispersos', 
+    body:'Transcripción manual que genera duplicados, errores y reclamos de clientes.',
+    color: 'var(--color-warning)'
+  },
+  { 
+    icon:'📅', 
+    title:'Reservas sin recordatorios', 
+    body:'Los clientes olvidan asistir, tus mesas quedan vacías y pierdes ingresos.',
+    color: 'var(--color-primary)'
+  },
+  { 
+    icon:'📦', 
+    title:'Inventario desordenado', 
+    body:'Quiebres de stock, sobrecompras y mermas que golpean tu rentabilidad.',
+    color: 'var(--color-danger)'
+  },
+  { 
+    icon:'🛒', 
+    title:'Ventas poco integradas', 
+    body:'Conciliación lenta entre online y presencial, despachos manuales, reclamos mal gestionados.',
+    color: 'var(--color-warning)'
+  },
+  { 
+    icon:'🗓️', 
+    title:'Servicios desorganizados', 
+    body:'Agendas caóticas, leads perdidos en redes sociales y boletas atrasadas.',
+    color: 'var(--color-primary)'
+  },
+];
+---
+<section id="problemas" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>❌ Los problemas que frenan a tu negocio</h2>
+      <p class="subtitle">Las PYMES pierden horas valiosas en tareas manuales, conciliaciones y errores operativos. Flowizz llega para eliminar ese caos.</p>
+    </div>
+    
+    <div class="cards-grid" style="margin-top: var(--space-10);">
+      {problems.map((problem, index) => (
+        <div 
+          class="problem-card card" 
+          data-aos="fade-up" 
+          data-aos-delay={100 * (index + 1)}
+          style={`--accent-color: ${problem.color}`}
+        >
+          <div class="problem-icon">{problem.icon}</div>
+          <h3>{problem.title}</h3>
+          <p>{problem.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .problem-card {
+    background: rgba(26, 21, 48, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(186, 171, 212, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    text-align: center;
+    transition: all var(--transition-normal);
+    border-left: 4px solid var(--accent-color, var(--color-primary));
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .problem-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--accent-color, var(--color-primary)), transparent);
+    opacity: 0.03;
+    transition: all var(--transition-normal);
+  }
+
+  .problem-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent-color, var(--color-primary));
+  }
+
+  .problem-card:hover::after {
+    opacity: 0.08;
+    transform: scale(1.1);
+  }
+
+  .problem-icon {
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: var(--space-4);
+    display: block;
+  }
+
+  .problem-card h3 {
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-xl);
+  }
+
+  .problem-card p {
+    color: var(--color-text-soft);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .problem-card {
+      text-align: left;
+    }
+    
+    .problem-icon {
+      font-size: 2.5rem;
+    }
+  }
+</style>

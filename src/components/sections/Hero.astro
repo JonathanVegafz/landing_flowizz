@@ -1,0 +1,160 @@
+---
+---
+<section id="hero" class="section hero">
+  <div class="container">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+      <div class="badge" data-aos="fade-up" data-aos-delay="200">✨ Automatización inteligente</div>
+      <h1 data-aos="fade-up" data-aos-delay="400">Hacemos magia con tu flujo de trabajo</h1>
+      <p class="subtitle" data-aos="fade-up" data-aos-delay="600" style="color:rgba(255,255,255,.88); margin-top: var(--space-6);">
+        Automatizamos tareas repetitivas en tu negocio para que tengas más tiempo, menos errores y más ventas.
+      </p>
+      <div class="hero-actions" data-aos="fade-up" data-aos-delay="800">
+        <a href="#contacto" class="button" aria-label="Agenda tu demo gratuita">
+          <span>Agenda tu demo gratuita</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+        <a href="#proceso" class="button outline" aria-label="Conoce cómo funciona">
+          Conoce cómo funciona
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Decorative elements -->
+  <div class="hero-decoration" aria-hidden="true">
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+  </div>
+</section>
+
+<style>
+  /* ESTILOS DE RESPALDO FORZADOS - Máxima prioridad */
+  .hero-content,
+  .hero-content .badge,
+  .hero-content h1,
+  .hero-content .subtitle,
+  .hero-content .hero-actions {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+  
+  /* Anular estilos de AOS temporalmente */
+  [data-aos="fade-up"] {
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    line-height: 1.1;
+    margin: var(--space-4) 0;
+    font-weight: 700;
+    color: #ffffff !important;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  }
+
+  .hero .subtitle {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: var(--text-lg);
+    line-height: 1.6;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    font-weight: 500;
+  }
+
+  .hero .badge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    color: #ffffff;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    justify-content: center;
+    margin-top: var(--space-8);
+  }
+
+  .hero-decoration {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    filter: blur(1px);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .shape-1 {
+    width: 120px;
+    height: 120px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .shape-2 {
+    width: 80px;
+    height: 80px;
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+  }
+
+  .shape-3 {
+    width: 60px;
+    height: 60px;
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 4s;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-actions .button {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .floating-shape {
+      animation: none;
+    }
+  }
+</style>

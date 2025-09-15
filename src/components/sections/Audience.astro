@@ -1,0 +1,269 @@
+---
+const testimonial = {
+  quote: 'Antes pasaba horas conciliando caja y propinas, ahora Flowizz lo hace en segundos. Me dedico a atender clientes, no a cuadrar números.',
+  author: 'Carolina',
+  role: 'Dueña de restaurante en Valparaíso',
+  isSimulated: true
+};
+
+const businessTypes = [
+  { icon: '👩‍🍳', label: 'Restaurantes', description: 'Automatiza reservas, pedidos y conciliación' },
+  { icon: '🛒', label: 'Retail', description: 'Integra online y presencial sin fricciones' },
+  { icon: '⚕️', label: 'Servicios', description: 'Agenda inteligente y facturación automática' }
+];
+---
+<section id="publico" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>👩‍🍳 👨‍🔧 👩‍⚕️ Diseñado para negocios como el tuyo</h2>
+      <p class="subtitle">
+        Restaurantes, tiendas y servicios en Valparaíso (y pronto en todo Chile). 
+        Si tienes poco tiempo, te pierdes en papeleo o tus clientes exigen más rapidez: Flowizz es para ti.
+      </p>
+    </div>
+
+    <div class="business-types" data-aos="fade-up" data-aos-delay="200">
+      {businessTypes.map((business, index) => (
+        <div 
+          class="business-card" 
+          data-aos="zoom-in" 
+          data-aos-delay={300 + (index * 100)}
+        >
+          <div class="business-icon">{business.icon}</div>
+          <h3>{business.label}</h3>
+          <p>{business.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="audience-cta" data-aos="fade-up" data-aos-delay="800">
+      <div class="cta-box">
+        <h3>¿Tu negocio se parece a estos?</h3>
+        <p>Descubre cómo Flowizz puede transformar tu operación diaria</p>
+        <a href="#contacto" class="button">
+          Quiero una demostración personalizada
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-10);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .business-types {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-bottom: var(--space-12);
+  }
+
+  .business-card {
+    background: rgba(26, 21, 48, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(186, 171, 212, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .business-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-hero);
+  }
+
+  .business-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+    backdrop-filter: blur(15px);
+  }
+
+  .business-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .business-card h3 {
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .business-card p {
+    color: var(--color-text-soft);
+    line-height: 1.5;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .testimonial-section {
+    margin-bottom: var(--space-12);
+  }
+
+  .testimonial-card {
+    background: var(--gradient-card);
+    border: 1px solid rgba(186, 171, 212, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .testimonial-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .quote-icon {
+    font-size: 4rem;
+    color: var(--color-accent);
+    font-family: serif;
+    line-height: 1;
+    margin-bottom: var(--space-4);
+  }
+
+  .testimonial-card blockquote {
+    font-size: var(--text-lg);
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--color-text);
+    margin: 0 0 var(--space-6);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .author-name {
+    font-weight: 600;
+    color: var(--color-text);
+    font-style: normal;
+    font-size: var(--text-lg);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .author-role {
+    color: var(--color-text-soft);
+    font-size: var(--text-sm);
+    margin: var(--space-1) 0 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .simulated-badge {
+    display: inline-block;
+    background: var(--color-warning);
+    color: var(--color-text);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    margin-left: var(--space-2);
+  }
+
+  .testimonial-decoration {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    opacity: 0.1;
+  }
+
+  .audience-cta {
+    text-align: center;
+  }
+
+  .cta-box {
+    background: rgba(26, 21, 48, 0.9);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-hero);
+    opacity: 0.05;
+    z-index: -1;
+  }
+
+  .cta-box h3 {
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .cta-box p {
+    color: var(--color-text-soft);
+    margin-bottom: var(--space-6);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .business-types {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .testimonial-card {
+      padding: var(--space-6);
+    }
+
+    .quote-icon {
+      font-size: 3rem;
+    }
+
+    .testimonial-card blockquote {
+      font-size: var(--text-base);
+    }
+
+    .cta-box {
+      padding: var(--space-6);
+    }
+  }
+</style>

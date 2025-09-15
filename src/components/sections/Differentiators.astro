@@ -1,0 +1,189 @@
+---
+const difs = [
+  { 
+    icon:'💡', 
+    title:'Pensado para PYMES', 
+    body:'No corporativos: simplicidad y foco operativo real para negocios como el tuyo.',
+    gradient: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)'
+  },
+  { 
+    icon:'⚡', 
+    title:'Fácil de usar', 
+    body:'Sin curva técnica compleja: lo configuramos juntos y funciona desde el día uno.',
+    gradient: 'linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)'
+  },
+  { 
+    icon:'🤝', 
+    title:'Soporte cercano', 
+    body:'Hablamos tu idioma, respondemos rápido y estamos cuando nos necesitas.',
+    gradient: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)'
+  },
+];
+---
+<section id="por-que" class="section alt">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>🌟 Lo que nos hace diferentes</h2>
+      <p class="subtitle">
+        No somos un software más: entendemos los dolores de las PYMES en Chile y creamos soluciones simples, accesibles y a la medida.
+      </p>
+    </div>
+    
+    <div class="differentiators-grid">
+      {difs.map((diff, index) => (
+        <div 
+          class="differentiator-card" 
+          data-aos="fade-up" 
+          data-aos-delay={200 * (index + 1)}
+          style={`--card-gradient: ${diff.gradient}`}
+        >
+          <div class="card-background"></div>
+          <div class="card-content">
+            <div class="diff-icon">{diff.icon}</div>
+            <h3>{diff.title}</h3>
+            <p>{diff.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="differentiators-cta" data-aos="fade-up" data-aos-delay="800">
+      <div class="cta-content">
+        <h3>¿Listo para una automatización pensada para ti?</h3>
+        <p>Descubre por qué las PYMES chilenas confían en Flowizz</p>
+        <a href="#contacto" class="button">
+          Conversa con nuestro equipo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-10);
+  }
+
+  .section-header h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .differentiators-grid {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .differentiator-card {
+    position: relative;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(186, 171, 212, 0.12);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: var(--card-gradient);
+    opacity: 0.05;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .differentiator-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--color-primary);
+  }
+
+  .differentiator-card:hover .card-background {
+    opacity: 0.15;
+    height: 70%;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .diff-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+    display: block;
+  }
+
+  .differentiator-card h3 {
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  .differentiator-card p {
+    color: var(--color-text-soft);
+    line-height: 1.6;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .differentiators-cta {
+    margin-top: var(--space-12);
+    text-align: center;
+  }
+
+  .cta-content {
+    background: var(--gradient-card);
+    border: 1px solid rgba(186, 171, 212, 0.12);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-md);
+  }
+
+  .cta-content h3 {
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+    font-size: var(--text-2xl);
+  }
+
+  .cta-content p {
+    color: var(--color-text-soft);
+    margin-bottom: var(--space-6);
+    font-size: var(--text-lg);
+  }
+
+  @media (max-width: 768px) {
+    .differentiators-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .differentiator-card {
+      padding: var(--space-6);
+    }
+
+    .diff-icon {
+      font-size: 2.5rem;
+    }
+
+    .cta-content {
+      padding: var(--space-6);
+    }
+  }
+</style>
