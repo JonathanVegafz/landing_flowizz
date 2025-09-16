@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
 	integrations: [react()],
+  site: 'https://flowizz.cl/',
 	// site: 'https://XaxavierJS.github.io',
  	// base: 'Flowizz.github.io',
 	vite: {
